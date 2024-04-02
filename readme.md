@@ -8,7 +8,7 @@ Repository contains adapted scripts and additional documentation.
 
 - [adb](https://developer.android.com/tools/adb)
 
-  [Add](https://stackoverflow.com/a/34532364) $ANDROID_HOME/platform-tools to your PATH
+- [Add](https://stackoverflow.com/a/34532364) `$ANDROID_HOME/platform-tools` to your `PATH`
 
 ## Installation
 
