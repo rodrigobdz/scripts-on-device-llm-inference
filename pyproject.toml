@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["on_device_llm_inference"]
+
+[project]
+name = "on_device_llm_inference"
+version = "0.0.1"
+dependencies = ['importlib-metadata; python_version<"3.10"', 'mediapipe']

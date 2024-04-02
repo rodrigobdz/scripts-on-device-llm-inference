@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Format code.
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+pre-commit run --all-files --show-diff-on-failure

@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#
+# Install Python package.
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+# shellcheck disable=SC1091
+source utils.sh
+
+if [ "$#" -ne 1 ]; then
+  errexit "Usage: $0 <LOCAL_PATH_TO_MODEL>
+
+Read:
+https://developers.google.com/mediapipe/solutions/genai/llm_inference/android#model"
+fi
+
+# Check if $1 is a file
+if [ ! -f "$1" ]; then
+  errexit "File $1 not found
+
+Download the model from the link below and provide the path to the model file as an argument to this script:
+https://developers.google.com/mediapipe/solutions/genai/llm_inference/android#model"
+fi
+
+fancy_echo "Remove any previously loaded models"
+adb shell rm -r /data/local/tmp/llm/
+
+fancy_echo "Create directory for model"
+adb shell mkdir -p /data/local/tmp/llm/
+
+fancy_echo "Push model to device"
+adb push "$1" /data/local/tmp/llm/model.bin
